@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable()
 export class DataService {
 
-  private checkSource = new BehaviorSubject(true);
+  checkSource = new BehaviorSubject(true);
   welcome = this.checkSource.asObservable();
 
   constructor() { }
@@ -13,4 +13,4 @@ export class DataService {
     this.checkSource.next(welcome)
   }
 
-}
+}  

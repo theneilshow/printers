@@ -21,8 +21,6 @@ export class PrinterComponent implements OnInit {
     });
 
     this.data.welcome.subscribe(welcome => this.welcome = welcome);
-    this.data.changeWelcome(false);
-    
   }
 
   print() {

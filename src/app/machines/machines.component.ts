@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, Input, EventEmitter} from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from "../data.service";
 
 
 
@@ -13,7 +14,7 @@ export class MachinesComponent implements OnInit {
   machineId:Number;
   public changedId:Number;
 
-  message:boolean = true;
+  welcome: boolean;
     
   @Output() messageEvent = new EventEmitter<boolean>();
 
@@ -26,17 +27,21 @@ export class MachinesComponent implements OnInit {
     {id: 4, name: "other big printer"}
   ];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private data: DataService) { }
 
   onChange(id){
+    
+    this.data.changeWelcome(false);
+
     this.changedId = id;
     this.router.navigate(['/printer', id]);
-    this.looking = true
+    
   }
 
 
 
   ngOnInit() {
+    this.data.welcome.subscribe(welcome => this.welcome = welcome);
   }
 
   

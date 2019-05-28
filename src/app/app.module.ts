@@ -29,7 +29,7 @@ import { DataService } from './data.service';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

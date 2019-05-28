@@ -1,9 +1,10 @@
 <div>
-  
+  <div id="dropdown-wrapper">
+    <span *ngIf='welcome'>select a machine:</span>
     <select style="display: block;" [(ngModel)]="machineId" (ngModelChange)='onChange(machineId)'>
       <option *ngFor="let machine of machines" [value]="machine.id"> {{machine.name}} {{machine.id}} </option>
     </select>
-   
-    <router-outlet *ngIf='looking'></router-outlet>
+  </div>
+    <router-outlet *ngIf='!welcome'></router-outlet>
     
 </div>

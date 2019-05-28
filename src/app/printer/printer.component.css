@@ -13,3 +13,18 @@
     
     margin: 30px;
 }
+
+.badgerAllow{
+    position: relative;
+}
+
+.badger {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    background-color: red;
+    padding-left: 10px;
+    top: -25px;
+    right: -25px;
+}

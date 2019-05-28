@@ -14,6 +14,7 @@ export class PrintComponent implements OnInit {
   isFinished: boolean = false;
   unsuccessful: boolean = false;
   successful: boolean = false;
+  printStatus: string = "ready";
   machineNumber;
 
 
@@ -21,12 +22,13 @@ export class PrintComponent implements OnInit {
 
   startPrint() {
     this.isPrinting = true;
-    this.messageEvent.emit(this.isPrinting)
+    this.printStatus = "printing";
   }
 
   stopPrint() {
     this.isPrinting = false;
     this.isFinished = true;
+    this.printStatus = "ready";
   }
 
   successfulTick(e) {
