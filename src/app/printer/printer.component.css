@@ -1,0 +1,15 @@
+#printer-container{
+    height: calc(100vh - 46px);
+    text-align: center;
+}
+
+#button-container{
+    
+    padding: 30px;
+    width: 100%;
+}
+
+#button-container button{
+    
+    margin: 30px;
+}

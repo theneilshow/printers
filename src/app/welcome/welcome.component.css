@@ -1,0 +1,18 @@
+#welcome {
+    height: calc(100vh - 42px);
+    background-color: lightgray;
+    text-align: center;
+}
+
+#welcome p {
+    width: 100%;
+}
+
+#machine-selction{
+    width: 100%;
+    display: block;
+}
+
+app-machines {
+    border: solid 1px red;
+}

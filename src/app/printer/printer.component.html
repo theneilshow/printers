@@ -1,0 +1,16 @@
+<!-- <app-machines></app-machines> -->
+
+<div id="printer-container"> 
+   <h3>PRINTER {{ machineNumber }}</h3>
+   <p> {{isPrinting}} </p>
+   <div></div>
+
+   <div id="button-container">
+  <button class="btn" (click) = 'print()'>PRINT</button>
+  <button class="btn" (click) = 'maintain()'>MAINTAIN</button>
+  <button class="btn">LOGS</button>
+  </div>
+
+  <router-outlet></router-outlet>
+
+</div>
