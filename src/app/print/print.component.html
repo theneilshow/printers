@@ -1,62 +1,66 @@
-
-
 <div id="print-wrapper">
   <h3>PRINTER {{ machineNumber}}</h3>
   <p>Status... {{ printStatus }}</p>
-  <form action="#">
+  <form #printForm="ngForm" (ngSubmit)="onSubmit()">
+
+    {{ printForm.value | json }}
+    <hr />
+    {{ printModel | json }}
+    <br>
+
     <div class="file-field input-field">
       <div class="btn">
         <span>File</span>
-        <input type="file" multiple>
       </div>
       <div class="file-path-wrapper">
-        <input class="file-path validate" type="text" placeholder="Upload one or more files">
+        <input class="file-path validate" type="text" placeholder="Select a file" name="printFile" [(ngModel)]="printModel.printFile">
       </div>
     </div>
-  </form>
-
-  <div id="buttons-container">
-    <button class="btn" *ngIf="!isPrinting && !isFinished" (click)="startPrint()">start print</button>
-    <button class="btn" *ngIf="isPrinting" (click)="stopPrint()">stop print</button>
-  </div>
-  <div id="printFeedback" *ngIf="isFinished">
-    <label>
-      <input type="checkbox" name="successful" id="successful" [(ngModel)]="successful"
-        ng-click="successfulTick($event)" />
-      <span>Was the print successful?</span>
-    </label>
-    <br>
-    <label>
-      <input type="checkbox" name="unsuccessful" id="unsuccessful" [(ngModel)]="unsuccessful"
-        ng-click="unsuccessfulTick($event)" />
-      <span>Did the print fail?</span>
-    </label>
-    <div class="input-field col s12" *ngIf="unsuccessful">
-      <select style="display: block;">
-        <option value="" disabled selected>What went wrong?</option>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-        <option value="4">none of these</option>
-      </select>
 
 
+    <div id="buttons-container">
+      <button class="btn" *ngIf="!isPrinting && !isFinished" (click)="startPrint()">start print</button>
+      <button class="btn" *ngIf="isPrinting" (click)="stopPrint()">stop print</button>
+    </div>
+    <div id="printFeedback" *ngIf="isFinished">
+      <label>
+        <input type="checkbox" name="successful" id="successful" [(ngModel)]="successful"
+          ng-click="successfulTick($event)" />
+        <span>Was the print successful?</span>
+      </label>
+      <br>
+      <label>
+        <input type="checkbox" name="unsuccessful" id="unsuccessful" [(ngModel)]="unsuccessful"
+          ng-click="unsuccessfulTick($event)"/>
+        <span>Did the print fail?</span>
+      </label>
+      <div class="input-field col s12" *ngIf="unsuccessful">
+        <select style="display: block;" name="errorType" [(ngModel)]="print.errorType">
+          <option value="" disabled selected>What went wrong?</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+          <option value="4">none of these</option>
+        </select>
+
+      </div>
 
     </div>
     <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s12">
-            <textarea id="textarea1" class="materialize-textarea"></textarea>
-            <label for="textarea1">Comments</label>
-          </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="textarea1" class="materialize-textarea" name="printComment" [(ngModel)]="printModel.printComment"></textarea>
+          <label for="textarea1">Comments</label>
         </div>
-      </form>
+      </div>
+
     </div>
 
-    <button class="btn">SAVE</button>
-  </div>
+    <button class="btn" >SAVE</button>
+  </form>
+
   <div id="back">
     <button class="btn" (click)='back()'>BACK</button>
   </div>
+
 </div>

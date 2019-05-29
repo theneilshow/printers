@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { Print } from '../print';
+import { PrintService } from '../print.service'
 
 @Component({
   selector: 'app-print',
@@ -8,7 +10,7 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 })
 export class PrintComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private _printService: PrintService) { }
 
   isPrinting: boolean = false;
   isFinished: boolean = false;
@@ -16,6 +18,8 @@ export class PrintComponent implements OnInit {
   successful: boolean = false;
   printStatus: string = "ready";
   machineNumber;
+  
+  // printModel = new Print(2, 'holder.jpg', false, "3", false, false, 'a comment');
 
 
   @Output() messageEvent = new EventEmitter<boolean>();
@@ -48,6 +52,19 @@ export class PrintComponent implements OnInit {
 
   back() {
     this.router.navigate(['/printer', this.machineNumber]);
+  }
+
+  display(){
+    alert();
+  }
+
+  onSubmit(){
+    // console.log(this.printModel);
+    this._printService.newPrint(this.printModel)
+    .subscribe(
+      data => console.log("Success!", data),
+      error => console.log("Error!", error)
+    )
   }
 
 
