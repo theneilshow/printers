@@ -16,10 +16,6 @@ export class MachinesComponent implements OnInit {
 
   welcome: boolean;
     
-  @Output() messageEvent = new EventEmitter<boolean>();
-
-  @Input() looking: Boolean
-
   public machines = [
     {id: 1, name: "big printer"},
     {id: 2, name: "medium printer"},

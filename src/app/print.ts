@@ -6,6 +6,6 @@ export class Print {
        public errorType: string,
        public successful: boolean,
        public unsuccessful: boolean,
-       public printComment: string,
+       public printComment: string
     ){}
 }

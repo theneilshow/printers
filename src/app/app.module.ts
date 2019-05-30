@@ -12,6 +12,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { PrinterComponent } from './printer/printer.component';
 import { NavComponent } from './nav/nav.component';
 import { DataService } from './data.service';
+import { AdminComponent } from './admin/admin.component';
+import { AddPrinterComponent } from './add-printer/add-printer.component';
 
 
 
@@ -23,7 +25,9 @@ import { DataService } from './data.service';
     MaintainComponent,
     WelcomeComponent,
     PrinterComponent,
-    NavComponent
+    NavComponent,
+    AdminComponent,
+    AddPrinterComponent
   ],
   imports: [
     BrowserModule,

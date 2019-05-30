@@ -1,7 +1,7 @@
 <div id="print-wrapper">
   <h3>PRINTER {{ machineNumber}}</h3>
   <p>Status... {{ printStatus }}</p>
-  <form #printForm="ngForm" (ngSubmit)="onSubmit()">
+  <form #printForm="ngForm" novalidate (ngSubmit)="onSubmit()">
 
     {{ printForm.value | json }}
     <hr />

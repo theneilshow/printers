@@ -19,10 +19,7 @@ export class PrintComponent implements OnInit {
   printStatus: string = "ready";
   machineNumber;
   
-  // printModel = new Print(2, 'holder.jpg', false, "3", false, false, 'a comment');
-
-
-  @Output() messageEvent = new EventEmitter<boolean>();
+  printModel = new Print(2, 'holder.jpg', false, "3", false, false, 'a comment');
 
   startPrint() {
     this.isPrinting = true;
